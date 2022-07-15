@@ -22,7 +22,7 @@ public class Dice : MonoBehaviour
             float dirY = Random.Range(0, 2000);
             float dirZ = Random.Range(0, 2000);
 
-            transform.position = Vector3.up * 2;
+            transform.position = new Vector3(20,6,35);
             transform.rotation = Quaternion.Euler(Random.Range(0,360), Random.Range(0, 360), Random.Range(0, 360));
             rb.AddForce(Vector3.up * 2000);
             rb.AddTorque(dirX, dirY, dirZ);
