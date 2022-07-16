@@ -12,10 +12,12 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         ilkpos = transform.position;
         ileri = true;
+        
     }
 
     // Update is called once per frame
     float a = 0;
+   
     void Update()
     {
         if (GameManager.Instance.isPlayerTurn) return;
@@ -29,6 +31,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     GetComponentInChildren<Animator>().SetTrigger("attack");
                     player.GetComponent<PlayerHealth>().getDamage(20);
+                    
                 }
                     
                 a += Time.deltaTime;
@@ -46,6 +49,7 @@ public class EnemyAI : MonoBehaviour
                 ileri = true;
                 GameManager.Instance.UIkapat(true);
                 GameManager.Instance.isPlayerTurn = true;
+               
                 a = 0;
             }
         }
