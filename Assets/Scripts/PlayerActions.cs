@@ -8,7 +8,7 @@ public class PlayerActions : MonoBehaviour
     Animator animator;
     [SerializeField] Dice dice;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
-
+    public Actions action;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -16,6 +16,7 @@ public class PlayerActions : MonoBehaviour
     #region AttackAAction
     public void Attack()
     {
+        action = Actions.Attack;
         StartCoroutine(AttackRoutine());
     }
     IEnumerator AttackRoutine()
@@ -44,8 +45,17 @@ public class PlayerActions : MonoBehaviour
     }
     public void Spell()
     {
+        action = Actions.Spellcast;
         StartCoroutine(SpellCast());
     }
 
 
+}
+public enum Actions
+{
+    None,
+    Attack,
+    Spellcast,
+    Talk,
+    Run
 }
