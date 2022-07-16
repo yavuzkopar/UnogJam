@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
     Animator animator;
     [SerializeField] Dice dice;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -19,16 +20,31 @@ public class PlayerActions : MonoBehaviour
     }
     IEnumerator AttackRoutine()
     {
+         dice.ZarAt();
+         virtualCamera.Priority = 11;
+         yield return new WaitForSeconds(3);
+         virtualCamera.Priority = 9;
+         yield return new WaitForSeconds(2f);
+         animator.SetTrigger("attack");
+         Debug.Log("attack");
+        
+    }
+    #endregion
+    public IEnumerator SpellCast()
+    {
         dice.ZarAt();
         virtualCamera.Priority = 11;
         yield return new WaitForSeconds(3);
         virtualCamera.Priority = 9;
-        yield return new WaitForSeconds(2f);
-         animator.SetTrigger("attack");
-        Debug.Log("attack");
-        
+        yield return new WaitForSeconds(2);
+        animator.SetTrigger("spellCast");
+
+
     }
-    #endregion
+    public void Spell()
+    {
+        StartCoroutine(SpellCast());
+    }
 
 
 }
