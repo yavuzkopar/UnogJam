@@ -14,12 +14,14 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
         animation = true;
+        Panel.SetActive(false);
     }
+    int a = 0;
     void Update()
     {
         if (animation==true)
         {
-        Panel.SetActive(false);
+        
         var step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
@@ -27,7 +29,14 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("walk", false);
             animation= false;
-            Panel.SetActive(true);
+            
+               
         }
+     /*   if(GameManager.Instance.isPlayerTurn)
+            Panel.SetActive(true);
+        else
+        {
+            Panel.SetActive(false);
+        }*/
     }
 }

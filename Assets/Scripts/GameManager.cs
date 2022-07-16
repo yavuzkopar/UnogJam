@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     public int kalanBonus = 10;
     public TextMeshProUGUI zarText;
     public TextMeshProUGUI bonusText;
+
+    public bool isPlayerTurn = true;
+    [SerializeField] GameObject canvas;
     private void Awake()
     {
         instance = this;
+        isPlayerTurn = true;
     }
     public void BonusEkle(int i)
     {
@@ -23,6 +27,10 @@ public class GameManager : MonoBehaviour
         zarBonusu += i;
         zarBonusu = Mathf.Clamp(zarBonusu, -(10 - kalanBonus), kalanBonus);
         bonusText.text = zarBonusu.ToString();
+    }
+    public void UIkapat(bool v)
+    {
+        canvas.SetActive(v);
     }
     
 }

@@ -16,6 +16,7 @@ public class PlayerActions : MonoBehaviour
     #region AttackAAction
     public void Attack()
     {
+        GameManager.Instance.UIkapat(false);
         action = Actions.Attack;
         StartCoroutine(AttackRoutine());
     }
@@ -29,7 +30,20 @@ public class PlayerActions : MonoBehaviour
          yield return new WaitForSeconds(2f);
          animator.SetTrigger("attack");
          Debug.Log("attack");
-        
+        yield return new WaitForSeconds(1);
+        if (GameManager.Instance.zarSonucu >= 2)
+        {
+            // hasar verme
+            // basarili sonuc
+        }
+        else
+        {
+            // dusman dodge animasyon
+            //basarisiz
+        }
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.isPlayerTurn = false;
+
     }
     #endregion
     public IEnumerator SpellCast()
@@ -40,11 +54,24 @@ public class PlayerActions : MonoBehaviour
         virtualCamera.Priority = 9;
         yield return new WaitForSeconds(2);
         animator.SetTrigger("spellCast");
-
+        yield return new WaitForSeconds(1);
+        if (GameManager.Instance.zarSonucu >= 5)
+        {
+            // hasar verme
+            // basarili sonuc
+        }
+        else
+        {
+            // dusman dodge animasyon
+            //basarisiz
+        }
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.isPlayerTurn = false;
 
     }
     public void Spell()
     {
+        GameManager.Instance.UIkapat(false);
         action = Actions.Spellcast;
         StartCoroutine(SpellCast());
     }
