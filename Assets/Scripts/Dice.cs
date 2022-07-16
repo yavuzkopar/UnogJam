@@ -7,7 +7,7 @@ public class Dice : MonoBehaviour
     Rigidbody rb;
     public static Vector3 diceVelocity;
     public Transform playerPos;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }

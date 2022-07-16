@@ -20,6 +20,7 @@ public class PlayerActions : MonoBehaviour
     }
     IEnumerator AttackRoutine()
     {
+       
          dice.ZarAt();
          virtualCamera.Priority = 11;
          yield return new WaitForSeconds(3);
