@@ -6,6 +6,7 @@ public class Dice : MonoBehaviour
 {
     Rigidbody rb;
     public static Vector3 diceVelocity;
+    public Transform playerPos;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,17 +17,6 @@ public class Dice : MonoBehaviour
     {
         diceVelocity = rb.velocity;
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            float dirX = Random.Range(0, 2000);
-            float dirY = Random.Range(0, 2000);
-            float dirZ = Random.Range(0, 2000);
-
-            transform.position = new Vector3(20,6,35);
-            transform.rotation = Quaternion.Euler(Random.Range(0,360), Random.Range(0, 360), Random.Range(0, 360));
-            rb.AddForce(Vector3.up * 2000);
-            rb.AddTorque(dirX, dirY, dirZ);
-        }
     }
     public void ZarAt()
     {
@@ -34,7 +24,7 @@ public class Dice : MonoBehaviour
         float dirY = Random.Range(0, 2000);
         float dirZ = Random.Range(0, 2000);
 
-        transform.position = new Vector3(20, 6, 35);
+        transform.position = new Vector3(playerPos.position.x, 6, playerPos.position.z+12);
         transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         rb.AddForce(Vector3.up * 2000);
         rb.AddTorque(dirX, dirY, dirZ);
