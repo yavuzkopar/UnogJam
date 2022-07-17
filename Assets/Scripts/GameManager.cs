@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
 
         zarBonusu += i;
-        zarBonusu = Mathf.Clamp(zarBonusu, -(10 - kalanBonus), kalanBonus);
+        zarBonusu = Mathf.Clamp(zarBonusu, -2, kalanBonus);
         bonusText.text = zarBonusu.ToString();
     }
     public void UIkapat(bool v)
@@ -74,6 +74,10 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         Application.LoadLevel(0);
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
 
