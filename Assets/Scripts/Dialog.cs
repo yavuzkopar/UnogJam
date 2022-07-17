@@ -11,8 +11,12 @@ public class Dialog : MonoBehaviour
     public bool Stop = false;
     public GameObject continueButton;
     public GameObject DialogText;
+    public GameObject StartButton;
 
-
+    private void Start()
+    {
+        StartButton.SetActive(false);
+    }
 
     private void Update()
     {
@@ -43,10 +47,15 @@ public class Dialog : MonoBehaviour
         else
         {
             Stop = false;
-           continueButton.SetActive(false);
+            continueButton.SetActive(false);
             DialogText.SetActive(false);
+            StartButton.SetActive(true);
         }
 
+    }
+    public void NextScene()
+    {
+        Application.LoadLevel(2);
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -52,8 +52,9 @@ public class PlayerActions : MonoBehaviour
         {
             failText.gameObject.SetActive(true);
         }
+
         yield return new WaitForSeconds(2f);
-         animator.SetTrigger("attack");
+        animator.SetTrigger("attack");
         basariText.gameObject.SetActive(false);
         failText.gameObject.SetActive(false);
         Debug.Log("attack");

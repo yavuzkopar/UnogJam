@@ -12,14 +12,6 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         healthSlider.value = health;
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            getDamage(20);
-        }
-        if (health >= 100)
-        {
-            health = 100;
-        }
     }
     int a;
     public void getDamage(float amount)
