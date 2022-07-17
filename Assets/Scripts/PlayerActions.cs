@@ -146,6 +146,10 @@ public class PlayerActions : MonoBehaviour
         {
             // hasar verme
             dusman.GetComponent<EnemyAI>().kac = true;
+            if (dusman.CompareTag("finalBoss"))
+            {
+                dusman.GetComponent<PlayerHealth>().final();
+            }
             // basarili sonuc
         }
         else
@@ -172,6 +176,7 @@ public class PlayerActions : MonoBehaviour
         virtualCamera.Priority = 9;
         if (GameManager.Instance.zarSonucu >= 8)
         {
+
             basariText.gameObject.SetActive(true);
         }
         else
@@ -186,6 +191,10 @@ public class PlayerActions : MonoBehaviour
             // hasar verme
            // dusman.GetComponent<EnemyAI>().kac = true;
             kac = true;
+            if (dusman.CompareTag("finalBoss"))
+            {
+                dusman.GetComponent<PlayerHealth>().final();
+            }
             // basarili sonuc
         }
         else
