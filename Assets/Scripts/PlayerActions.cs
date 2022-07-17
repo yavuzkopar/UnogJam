@@ -8,6 +8,7 @@ public class PlayerActions : MonoBehaviour
     Animator animator;
     [SerializeField] Dice dice;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
+    [SerializeField] CinemachineVirtualCamera followCamera;
     public Actions action;
     public GameObject dusman;
     bool kac;
@@ -21,7 +22,13 @@ public class PlayerActions : MonoBehaviour
     private void Update()
     {
         if (kac)
+        {
             transform.position -= Vector3.forward * 5 * Time.deltaTime;
+            followCamera.Follow = null;
+            if (transform.position.z < 12)
+                GameManager.Instance.BasariliGun();
+        }
+            
     }
     #region AttackAAction
     public void Attack()

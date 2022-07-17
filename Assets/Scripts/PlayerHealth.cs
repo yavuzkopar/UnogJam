@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     public void getDamage(float amount)
     {
         health -= amount;
-        if (health <= 0 && a == 0)
+        if (health <= 0)
         {
             animator.SetTrigger("die");
             if(gameObject.tag != "Player")
@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 GameManager.Instance.Fail();
             }
-            a++;
+      
         }
     }
 }

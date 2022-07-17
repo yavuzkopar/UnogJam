@@ -26,6 +26,8 @@ public class EnemyAI : MonoBehaviour
         if(kac)
         {
             transform.position += Vector3.forward * 5 * Time.deltaTime;
+            if (transform.position.z >= 50)
+                GameManager.Instance.BasariliGun();
             return;
         }
             
