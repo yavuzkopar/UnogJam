@@ -11,6 +11,8 @@ public class PlayerActions : MonoBehaviour
     public Actions action;
     public GameObject dusman;
     bool kac;
+
+    [SerializeField] Transform basariText, failText;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,9 +37,19 @@ public class PlayerActions : MonoBehaviour
          virtualCamera.Priority = 11;
          yield return new WaitForSeconds(3);
          virtualCamera.Priority = 9;
-         yield return new WaitForSeconds(2f);
+        if (GameManager.Instance.zarSonucu >= 2)
+        {
+            basariText.gameObject.SetActive(true);
+        }
+        else
+        {
+            failText.gameObject.SetActive(true);
+        }
+        yield return new WaitForSeconds(2f);
          animator.SetTrigger("attack");
-         Debug.Log("attack");
+        basariText.gameObject.SetActive(false);
+        failText.gameObject.SetActive(false);
+        Debug.Log("attack");
         yield return new WaitForSeconds(1);
         if (GameManager.Instance.zarSonucu >= 2)
         {
@@ -64,8 +76,18 @@ public class PlayerActions : MonoBehaviour
         virtualCamera.Priority = 11;
         yield return new WaitForSeconds(3);
         virtualCamera.Priority = 9;
+        if (GameManager.Instance.zarSonucu >= 2)
+        {
+            basariText.gameObject.SetActive(true);
+        }
+        else
+        {
+            failText.gameObject.SetActive(true);
+        }
         yield return new WaitForSeconds(2);
         animator.SetTrigger("spellCast");
+        basariText.gameObject.SetActive(false);
+        failText.gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
         if (GameManager.Instance.zarSonucu >= 5)
         {
@@ -99,8 +121,18 @@ public class PlayerActions : MonoBehaviour
         virtualCamera.Priority = 11;
         yield return new WaitForSeconds(3);
         virtualCamera.Priority = 9;
+        if (GameManager.Instance.zarSonucu >= 2)
+        {
+            basariText.gameObject.SetActive(true);
+        }
+        else
+        {
+            failText.gameObject.SetActive(true);
+        }
         yield return new WaitForSeconds(2);
         animator.SetTrigger("talk");
+        basariText.gameObject.SetActive(false);
+        failText.gameObject.SetActive(false);
         yield return new WaitForSeconds(2);
         if (GameManager.Instance.zarSonucu >= 5)
         {
@@ -130,7 +162,17 @@ public class PlayerActions : MonoBehaviour
         virtualCamera.Priority = 11;
         yield return new WaitForSeconds(3);
         virtualCamera.Priority = 9;
+        if (GameManager.Instance.zarSonucu >= 2)
+        {
+            basariText.gameObject.SetActive(true);
+        }
+        else
+        {
+            failText.gameObject.SetActive(true);
+        }
         yield return new WaitForSeconds(2);
+        basariText.gameObject.SetActive(false);
+        failText.gameObject.SetActive(false);
         if (GameManager.Instance.zarSonucu >= 5)
         {
             // hasar verme

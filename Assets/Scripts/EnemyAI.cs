@@ -24,7 +24,11 @@ public class EnemyAI : MonoBehaviour
         if (GameManager.Instance.isPlayerTurn) return;
         Vector3 hedef = player.position + Vector3.forward * 5;
         if(kac)
-            transform.position += Vector3.forward * 5*Time.deltaTime;
+        {
+            transform.position += Vector3.forward * 5 * Time.deltaTime;
+            return;
+        }
+            
         if (ileri)
         {
             transform.position = Vector3.MoveTowards(transform.position, hedef, 15f * Time.deltaTime);

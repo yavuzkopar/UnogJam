@@ -27,6 +27,10 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger("die");
+            if(gameObject.tag != "Player")
+            {
+                GetComponent<EnemyAI>().enabled = false;
+            }
         }
     }
 }
