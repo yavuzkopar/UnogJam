@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     float maxHealth = 100;
     public Slider healthSlider;
+    public Animator animator;
     private void Update()
     {
         healthSlider.value = health;
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            Debug.Log("öldün");
+            animator.SetTrigger("die");
         }
     }
 }

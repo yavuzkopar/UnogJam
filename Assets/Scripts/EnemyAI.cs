@@ -7,12 +7,13 @@ public class EnemyAI : MonoBehaviour
     Transform player;
     Vector3 ilkpos;
     bool ileri;
+    public bool kac;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         ilkpos = transform.position;
         ileri = true;
-        
+        kac = false;
     }
 
     // Update is called once per frame
@@ -22,6 +23,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (GameManager.Instance.isPlayerTurn) return;
         Vector3 hedef = player.position + Vector3.forward * 5;
+        if(kac)
+            transform.position += Vector3.forward * 5*Time.deltaTime;
         if (ileri)
         {
             transform.position = Vector3.MoveTowards(transform.position, hedef, 15f * Time.deltaTime);
