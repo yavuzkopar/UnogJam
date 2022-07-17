@@ -32,6 +32,13 @@ public class GameManager : MonoBehaviour
     {
         canvas.SetActive(v);
     }
-    
+    public void BasariliGun()
+    {
+
+    }
+    public void Fail()
+    {
+
+    }
     
 }

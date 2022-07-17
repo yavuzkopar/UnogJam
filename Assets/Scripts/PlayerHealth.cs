@@ -21,16 +21,23 @@ public class PlayerHealth : MonoBehaviour
             health = 100;
         }
     }
+    int a;
     public void getDamage(float amount)
     {
         health -= amount;
-        if (health <= 0)
+        if (health <= 0 && a == 0)
         {
             animator.SetTrigger("die");
             if(gameObject.tag != "Player")
             {
                 GetComponent<EnemyAI>().enabled = false;
+                GameManager.Instance.BasariliGun();
             }
+            else
+            {
+                GameManager.Instance.Fail();
+            }
+            a++;
         }
     }
 }

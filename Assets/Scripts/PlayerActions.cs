@@ -35,9 +35,9 @@ public class PlayerActions : MonoBehaviour
        
          dice.ZarAt();
          virtualCamera.Priority = 11;
-         yield return new WaitForSeconds(3);
+         yield return new WaitForSeconds(4);
          virtualCamera.Priority = 9;
-        if (GameManager.Instance.zarSonucu >= 2)
+        if (GameManager.Instance.zarSonucu >= 3)
         {
             basariText.gameObject.SetActive(true);
         }
@@ -51,7 +51,7 @@ public class PlayerActions : MonoBehaviour
         failText.gameObject.SetActive(false);
         Debug.Log("attack");
         yield return new WaitForSeconds(1);
-        if (GameManager.Instance.zarSonucu >= 2)
+        if (GameManager.Instance.zarSonucu >= 3)
         {
             // hasar verme
             dusman.GetComponent<PlayerHealth>().getDamage(30);
@@ -74,9 +74,9 @@ public class PlayerActions : MonoBehaviour
     {
         dice.ZarAt();
         virtualCamera.Priority = 11;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         virtualCamera.Priority = 9;
-        if (GameManager.Instance.zarSonucu >= 2)
+        if (GameManager.Instance.zarSonucu >= 5)
         {
             basariText.gameObject.SetActive(true);
         }
@@ -119,9 +119,9 @@ public class PlayerActions : MonoBehaviour
         GameManager.Instance.UIkapat(false);
         dice.ZarAt();
         virtualCamera.Priority = 11;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         virtualCamera.Priority = 9;
-        if (GameManager.Instance.zarSonucu >= 2)
+        if (GameManager.Instance.zarSonucu >= 9)
         {
             basariText.gameObject.SetActive(true);
         }
@@ -134,7 +134,7 @@ public class PlayerActions : MonoBehaviour
         basariText.gameObject.SetActive(false);
         failText.gameObject.SetActive(false);
         yield return new WaitForSeconds(2);
-        if (GameManager.Instance.zarSonucu >= 5)
+        if (GameManager.Instance.zarSonucu >= 9)
         {
             // hasar verme
             dusman.GetComponent<EnemyAI>().kac = true;
@@ -160,9 +160,9 @@ public class PlayerActions : MonoBehaviour
         GameManager.Instance.UIkapat(false);
         dice.ZarAt();
         virtualCamera.Priority = 11;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         virtualCamera.Priority = 9;
-        if (GameManager.Instance.zarSonucu >= 2)
+        if (GameManager.Instance.zarSonucu >= 8)
         {
             basariText.gameObject.SetActive(true);
         }
@@ -173,7 +173,7 @@ public class PlayerActions : MonoBehaviour
         yield return new WaitForSeconds(2);
         basariText.gameObject.SetActive(false);
         failText.gameObject.SetActive(false);
-        if (GameManager.Instance.zarSonucu >= 5)
+        if (GameManager.Instance.zarSonucu >= 8)
         {
             // hasar verme
            // dusman.GetComponent<EnemyAI>().kac = true;
